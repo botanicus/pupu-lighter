@@ -5,8 +5,9 @@ dependency :mootools
 javascript "Lighter"
 
 # parameters of plugin
-themes   = Dir["#{self.root}/stylesheets/Flame.*.css"].map { |theme| File.basename(theme).split(".")[1] }
-syntaxes = Dir["#{self.root}/javascripts/Fuel.*.js"].map { |theme| File.basename(theme).split(".")[1] }
+root     = File.expand_path(File.join(File.dirname(__FILE__), "..")) # TODO: DSL should have API for similar things
+themes   = Dir["#{root}/stylesheets/Flame.*.css"].map { |theme| File.basename(theme).split(".")[1] }
+syntaxes = Dir["#{root}/javascripts/Fuel.*.js"].map { |theme| File.basename(theme).split(".")[1] }
 
 # pupu :lighter, theme: "mocha"
 parameter :theme, :optional => themes do |theme|
